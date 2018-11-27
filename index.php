@@ -37,6 +37,7 @@
     include 'php/bootstrap.php';
     include 'php/modalCard.php';
 ?>
+<script src="js/grabThisId.js" charset="utf-8"></script>
   </body>
 
 </html>

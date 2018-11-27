@@ -17,7 +17,7 @@
   foreach ($movieId as $datatitle) {
       echo '<div class="card card-movie-poster bg-blacker text-white text-center  text-align-middle mx-2 mb-3">
         <div class="card-body">
-        <a data-toggle="modal" href="#modal'.$datatitle['movieID'].'"><img class="card-img " src="img/movieCovers/'.$datatitle['datatitle'].'.jpg"></a>
+        <a data-toggle="modal" href="#film-'.$datatitle['movieID'].'"><img class="card-img " src="img/movieCovers/'.$datatitle['datatitle'].'.jpg"></a>
         </div>
       </div>';
 }
