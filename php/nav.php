@@ -21,6 +21,11 @@
               <?php
               if(isset($_SESSION['userUsername'])){
                 echo '<p class="nav-link">Hi '.ucfirst($_SESSION['userUsername']).'!</p>';
+
+                echo '
+                <li class="nav-item">
+                  <a class="nav-link" href="php/logout.php">Logout</a>
+                </li>';
               }
               else {
                 echo '<p class="nav-link">You are not logged in!</p>';
