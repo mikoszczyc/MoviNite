@@ -14,24 +14,31 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#movies">Movies</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="modal" href="#signupModal">Sign up!</a>
-            </li>
-            <li class="nav-item">
+
+
               <?php
               if(isset($_SESSION['userUsername'])){
-                echo '<p class="nav-link">Hi '.ucfirst($_SESSION['userUsername']).'!</p>';
+                echo '
+                <li class="nav-item">
+                <p class="nav-link">Hi '.ucfirst($_SESSION['userUsername']).'!</p>
+                </li>
+                ';
 
                 echo '
                 <li class="nav-item">
                   <a class="nav-link" href="php/logout.php">Logout</a>
-                </li>';
+                </li>
+                ';
               }
               else {
-                echo '<p class="nav-link">You are not logged in!</p>';
+                echo '
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="modal" title="You are not logged in!" href="#signupModal">Sign up!</a>
+                </li>
+                <p class="nav-link"></p>';
               }
                ?>
-            </li>
+
           </ul>
         </div>
 
