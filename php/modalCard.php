@@ -2,7 +2,7 @@
 
 <?php
 foreach ($movieId as $datatitle) {
-echo '<div class="modal fade" id="film-'.$datatitle['movieID'].'">
+echo '<div class="modal fade" id="myModal'.$datatitle['movieID'].'">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content bg-black">
       <div class="modal-header">
@@ -44,7 +44,7 @@ echo '<div class="modal fade" id="film-'.$datatitle['movieID'].'">
       <div class="row">
         <!-- Video -->
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe id="'.$datatitle['movieID'].'" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$datatitle['movieTrailerUrl'].'?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$datatitle['movieTrailerUrl'].'?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
       </div>
       </div>
