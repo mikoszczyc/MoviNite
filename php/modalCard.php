@@ -1,14 +1,15 @@
 <!-- Generates a Bootstrap Modal with data extracted from the DB -->
 
 <?php
-foreach ($movieId as $datatitle) {
-echo '<div class="modal fade" id="myModal'.$datatitle['movieID'].'">
+foreach ($movieId as $x) {
+
+echo '<div class="modal fade" id="myModal'.$x['movieID'].'">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content bg-black">
       <div class="modal-header">
 
       <!-- Movie Title -->
-      <h3 class="text-white-50">'.$datatitle['movieTitle'].'</h3>
+      <h3 class="text-white-50">'.$x['movieTitle'].'</h3>
 
         <!-- Close button -->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -21,13 +22,13 @@ echo '<div class="modal fade" id="myModal'.$datatitle['movieID'].'">
         <div class="col">
 
         <!-- Movie Cover -->
-        <img class="card-img " src="img/movieCovers/'.$datatitle['datatitle'].'.jpg" alt="'.$datatitle['movieTitle'].'">
+        <img class="card-img " src="img/movieCovers/'.$x['datatitle'].'.jpg" alt="'.$x['movieTitle'].'">
         </div>
         <div class="col">
 
         <!-- IMDb Rating-->
-        <span class="imdbRatingPlugin" data-title="'.$datatitle['datatitle'].'" data-style="p2">
-        <a href="https://www.imdb.com/title/'.$datatitle['datatitle'].'/?ref_=tt_plg_rt"
+        <span class="imdbRatingPlugin" data-title="'.$x['datatitle'].'" data-style="p2">
+        <a href="https://www.imdb.com/title/'.$x['datatitle'].'/?ref_=tt_plg_rt"
         src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/images/imdb_46x22.png">
           </a></span>
           <script>
@@ -38,13 +39,13 @@ echo '<div class="modal fade" id="myModal'.$datatitle['movieID'].'">
         </script>
 
         <!-- Movie Description -->
-        <p class="text-white-50">'.$datatitle['movieDesc'].'</p>
+        <p class="text-white-50">'.$x['movieDesc'].'</p>
         </div>
       </div>
       <div class="row">
         <!-- Video -->
       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$datatitle['movieTrailerUrl'].'?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe id="'.$x['movieID'].'" class="embed-responsive-item"  src="https://www.youtube-nocookie.com/embed/'.$x['movieTrailerUrl'].'?rel=0&amp;&enablejsapi=1; showinfo=0"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
       </div>
       </div>
@@ -52,6 +53,7 @@ echo '<div class="modal fade" id="myModal'.$datatitle['movieID'].'">
   </div>
 </div>
 ';
+
 }
 
 ?>

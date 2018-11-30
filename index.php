@@ -12,6 +12,12 @@
 
     <title>MoVinite</title>
 
+    <!-- Load youtube API -->
+    <script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    </script>
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
