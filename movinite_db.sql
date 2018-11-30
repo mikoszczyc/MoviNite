@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Paź 2018, 19:46
+-- Czas generowania: 30 Lis 2018, 23:48
 -- Wersja serwera: 10.1.35-MariaDB
 -- Wersja PHP: 7.2.9
 
@@ -33,7 +33,7 @@ CREATE TABLE `actors` (
   `firstName` varchar(20) NOT NULL,
   `lastName` varchar(20) NOT NULL,
   `birthDate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `directors` (
   `directorID` int(11) NOT NULL,
   `directorFirstName` varchar(255) DEFAULT NULL,
   `directorLastName` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `directors`
@@ -67,7 +67,7 @@ INSERT INTO `directors` (`directorID`, `directorFirstName`, `directorLastName`) 
 CREATE TABLE `favorites` (
   `userID` int(11) NOT NULL,
   `movieID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -78,7 +78,7 @@ CREATE TABLE `favorites` (
 CREATE TABLE `genres` (
   `genreID` int(11) NOT NULL,
   `genreName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `genres`
@@ -115,33 +115,35 @@ INSERT INTO `genres` (`genreID`, `genreName`) VALUES
 CREATE TABLE `movies` (
   `movieID` int(11) NOT NULL,
   `movieTitle` varchar(255) NOT NULL,
-  `movieDesc` text,
+  `movieDesc` longtext,
   `directorID` int(11) DEFAULT NULL,
   `movieReleaseDate` year(4) DEFAULT NULL,
-  `genre` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `genre` int(11) DEFAULT NULL,
+  `datatitle` varchar(30) DEFAULT NULL,
+  `movieTrailerUrl` varchar(120) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `movies`
 --
 
-INSERT INTO `movies` (`movieID`, `movieTitle`, `movieDesc`, `directorID`, `movieReleaseDate`, `genre`) VALUES
-(1, 'The Shawshank Redemption', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.\r\n', 1, 1994, 0),
-(2, 'The Godfather', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', NULL, 1972, 0),
-(3, 'The Godfather: Part II', 'The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.', NULL, 1974, 0),
-(4, 'The Dark Knight', 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.', NULL, 2008, 0),
-(5, '12 Angry Men', 'A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.', NULL, 1957, 0),
-(6, 'Schindler\'s List ', 'In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazi Germans.', 2, 1993, 0),
-(7, 'The Lord of the Rings: The Return of the King', 'Gandalf and Aragorn lead the World of Men against Sauron\'s army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.', 3, 2003, 0),
-(8, 'Pulp Fiction', 'The lives of two mob hitmen, a boxer, a gangster\'s wife, and a pair of diner bandits intertwine in four tales of violence and redemption.', 4, 1994, 0),
-(9, 'The Good, the Bad and the Ugly', 'A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.', NULL, 1966, 0),
-(10, 'Fight Club', 'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.', NULL, 1999, 0),
-(11, 'The Lord of the Rings: The Fellowship of the Ring', 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.', 3, 2001, 0),
-(12, 'Forrest Gump', 'The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.', NULL, 1994, 0),
-(13, 'Star Wars: Episode V - The Empire Strikes Back', 'After the rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued by Darth Vader.', NULL, 1980, 0),
-(14, 'Inception', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.', 5, 2010, 0),
-(15, 'The Lord of the Rings: The Two Towers', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron\'s new ally, Saruman, and his hordes of Isengard.', 3, 2002, 0),
-(16, 'One Flew Over the Cuckoo\'s Nest', 'A criminal pleads insanity after getting into trouble again and once in the mental institution rebels against the oppressive nurse and rallies up the scared patients.', NULL, 1975, 0);
+INSERT INTO `movies` (`movieID`, `movieTitle`, `movieDesc`, `directorID`, `movieReleaseDate`, `genre`, `datatitle`, `movieTrailerUrl`) VALUES
+(1, 'The Shawshank Redemption', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.\r\n', 1, 1994, 0, 'tt0111161', 'NmzuHjWmXOc'),
+(2, 'The Godfather', 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', NULL, 1972, 0, 'tt0068646', 'zBw8vUdtH2A'),
+(3, 'The Godfather: Part II', 'The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.', NULL, 1974, 0, 'tt0071562', '9O1Iy9od7-A'),
+(4, 'The Dark Knight', 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.', NULL, 2008, 0, 'tt0468569', '_PZpmTj1Q8Q'),
+(5, '12 Angry Men', 'A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.', NULL, 1957, 0, 'tt0050083', '_13J_9B5jEk'),
+(6, 'Schindler\'s List ', 'In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazi Germans.', 2, 1993, 0, 'tt0108052', 'mxphAlJID9U'),
+(7, 'The Lord of the Rings: The Return of the King', 'Gandalf and Aragorn lead the World of Men against Sauron\'s army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.', 3, 2003, 0, 'tt0167260', 'r5X-hFf6Bwo'),
+(8, 'Pulp Fiction', 'The lives of two mob hitmen, a boxer, a gangster\'s wife, and a pair of diner bandits intertwine in four tales of violence and redemption.', 4, 1994, 0, 'tt0110912', 's7EdQ4FqbhY'),
+(9, 'The Good, the Bad and the Ugly', 'A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.', NULL, 1966, 0, 'tt0060196', 'h1PfrmCGFnk'),
+(10, 'Fight Club', 'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.', NULL, 1999, 0, 'tt0137523', 'BdJKm16Co6M'),
+(11, 'The Lord of the Rings: The Fellowship of the Ring', 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.', 3, 2001, 0, 'tt0120737', 'z_WZxJpHzEE'),
+(12, 'Forrest Gump', 'The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.', NULL, 1994, 0, 'tt0109830', 'bLvqoHBptjg'),
+(13, 'Star Wars: Episode V - The Empire Strikes Back', 'After the rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued by Darth Vader.', NULL, 1980, 0, 'tt0080684', 'JNwNXF9Y6kY'),
+(14, 'Inception', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.', 5, 2010, 0, 'tt1375666', 'Qwe6qXFTdgc'),
+(15, 'The Lord of the Rings: The Two Towers', 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron\'s new ally, Saruman, and his hordes of Isengard.', 3, 2002, 0, 'tt0167261', 'cvCktPUwkW0'),
+(16, 'One Flew Over the Cuckoo\'s Nest', 'A criminal pleads insanity after getting into trouble again and once in the mental institution rebels against the oppressive nurse and rallies up the scared patients.', NULL, 1975, 0, 'tt0073486', 'NWZXL_anruA');
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,7 @@ INSERT INTO `movies` (`movieID`, `movieTitle`, `movieDesc`, `directorID`, `movie
 CREATE TABLE `movies_actors` (
   `movieID` int(11) NOT NULL,
   `actorID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -163,7 +165,7 @@ CREATE TABLE `movies_actors` (
 CREATE TABLE `movies_genre` (
   `movieID` int(11) NOT NULL,
   `genreID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -174,19 +176,17 @@ CREATE TABLE `movies_genre` (
 CREATE TABLE `users` (
   `id` int(9) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` longtext NOT NULL,
   `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(1, 'Mackay', 'qwerty123', 'mikoszczyc@gmail.com'),
-(2, 'Wonderful', 'asdfg567', 'przemek@gmail.com'),
-(3, 'Kajko', 'test', 'kokosz@gmail.com'),
-(4, 'testhash', '$2y$10$qH2InIStv1bcMcRDIBIHcOGVGIo1bbeb33N0bwGiK7x', 'testhash@gmail.com');
+(10, 'admin', '$2y$10$NpRPGdnJ4fT7nWcun4phPOJyQavuJ1gFUcoAiV5Tyrtgv5nzjryfm', 'admin@gmail.com'),
+(11, 'szymon', '$2y$10$n08ffkutpRcTwooSVAgU7ugfeXWfy35HOXCFCKuPUvfQAvy9CXuTS', 'szmeko@gmail.com');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -277,7 +277,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Ograniczenia dla zrzutów tabel
