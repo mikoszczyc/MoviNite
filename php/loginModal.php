@@ -12,11 +12,11 @@
 
         <form action="php/login.inc.php" method="post">
           <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" name="usernameuid" placeholder="Username">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email" placeholder="Email">
           </div>
           <div class="form-group">
-            <label for="inputPassword">Password</label>
+            <label>Password</label>
             <input type="password" class="form-control" id="inputPassword" name="passworduid" placeholder="Password">
           </div>
           <button type="submit" name="login-submit" class="btn-sm btn-primary">Log in</button>

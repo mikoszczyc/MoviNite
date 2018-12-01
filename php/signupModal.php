@@ -11,17 +11,19 @@
       <div class="modal-body">
         <form action="php/signup.inc.php" method="post">
           <div class="form-group">
-            <label for="inputEmail">Email address</label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email" placeholder="E-mail" required>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" required autocomplete="off">
           </div>
           <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username" required>
+            <label>Email address</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" name="email1" placeholder="E-mail" required>
+            <input type="email" class="form-control" aria-describedby="emailHelp" name="email2" placeholder="Confirm e-mail" required autocomplete="off">
+            <small id="emailHelp" class="form-text text-muted">Don't worry. We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required>
+            <label>Password</label>
+            <input type="password" class="form-control" name="password1" placeholder="Password" required autocomplete="off">
+            <input type="password" class="form-control" name="password2" placeholder="Confirm password" required autocomplete="off">
           </div>
           <button type="submit" name="signup-submit" class="btn-sm btn-primary">Sign up</button>
         </form>
