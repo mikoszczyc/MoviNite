@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Gru 2018, 19:26
+-- Czas generowania: 03 Gru 2018, 00:00
 -- Wersja serwera: 10.1.35-MariaDB
 -- Wersja PHP: 7.2.9
 
@@ -25,19 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `actors`
---
-
-CREATE TABLE `actors` (
-  `actorsID` int(11) NOT NULL,
-  `firstName` varchar(20) NOT NULL,
-  `lastName` varchar(20) NOT NULL,
-  `birthDate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `favorites`
 --
 
@@ -45,6 +32,16 @@ CREATE TABLE `favorites` (
   `userID` int(11) NOT NULL,
   `movieID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `favorites`
+--
+
+INSERT INTO `favorites` (`userID`, `movieID`) VALUES
+(10, 5),
+(10, 21),
+(14, 1),
+(14, 19);
 
 -- --------------------------------------------------------
 
@@ -91,17 +88,6 @@ INSERT INTO `movies` (`movieID`, `movieTitle`, `movieDesc`, `director`, `movieRe
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `movies_actors`
---
-
-CREATE TABLE `movies_actors` (
-  `movieID` int(11) NOT NULL,
-  `actorID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `users`
 --
 
@@ -109,28 +95,24 @@ CREATE TABLE `users` (
   `id` int(9) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` longtext NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `type` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(10, 'admin', '$2y$10$NpRPGdnJ4fT7nWcun4phPOJyQavuJ1gFUcoAiV5Tyrtgv5nzjryfm', 'admin@gmail.com'),
-(11, 'szymon', '$2y$10$n08ffkutpRcTwooSVAgU7ugfeXWfy35HOXCFCKuPUvfQAvy9CXuTS', 'szmeko@gmail.com'),
-(12, 'Mike', '$2y$10$z31QKsG2rlhYZsEpYNzhbetlNpUcJozEppfqvZq.oHxc2wi3ToPYa', 'mikemike@gmail.com'),
-(14, 'Mackay', '$2y$10$S7QVq6UtpuHYVtxHgfK.EOxahq/sGIHbEIdKBCVkd8xYSkdt97oCi', 'mikoszczyc@gmail.com');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `type`) VALUES
+(10, 'admin', '$2y$10$NpRPGdnJ4fT7nWcun4phPOJyQavuJ1gFUcoAiV5Tyrtgv5nzjryfm', 'admin@gmail.com', 1),
+(11, 'szymon', '$2y$10$n08ffkutpRcTwooSVAgU7ugfeXWfy35HOXCFCKuPUvfQAvy9CXuTS', 'szmeko@gmail.com', 0),
+(12, 'Mike', '$2y$10$z31QKsG2rlhYZsEpYNzhbetlNpUcJozEppfqvZq.oHxc2wi3ToPYa', 'mikemike@gmail.com', 0),
+(14, 'Mackay', '$2y$10$S7QVq6UtpuHYVtxHgfK.EOxahq/sGIHbEIdKBCVkd8xYSkdt97oCi', 'mikoszczyc@gmail.com', 1),
+(15, 'Przemek', '$2y$10$fsJM5rXjV4Tb5a8IOX5upeueuBwEdccJbjA3z3JjvaBD0rFE4XG5S', 'callmewo@gmail.com', 0);
 
 --
 -- Indeksy dla zrzutów tabel
 --
-
---
--- Indeksy dla tabeli `actors`
---
-ALTER TABLE `actors`
-  ADD PRIMARY KEY (`actorsID`);
 
 --
 -- Indeksy dla tabeli `favorites`
@@ -146,13 +128,6 @@ ALTER TABLE `movies`
   ADD PRIMARY KEY (`movieID`);
 
 --
--- Indeksy dla tabeli `movies_actors`
---
-ALTER TABLE `movies_actors`
-  ADD KEY `movieID` (`movieID`,`actorID`),
-  ADD KEY `actorID` (`actorID`);
-
---
 -- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
@@ -161,12 +136,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT dla tabeli `actors`
---
-ALTER TABLE `actors`
-  MODIFY `actorsID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `movies`
@@ -178,7 +147,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -190,13 +159,6 @@ ALTER TABLE `users`
 ALTER TABLE `favorites`
   ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`movieID`) REFERENCES `movies` (`movieID`);
-
---
--- Ograniczenia dla tabeli `movies_actors`
---
-ALTER TABLE `movies_actors`
-  ADD CONSTRAINT `movies_actors_ibfk_1` FOREIGN KEY (`movieID`) REFERENCES `movies` (`movieID`),
-  ADD CONSTRAINT `movies_actors_ibfk_2` FOREIGN KEY (`actorID`) REFERENCES `actors` (`actorsID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
