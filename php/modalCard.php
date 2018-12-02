@@ -38,6 +38,7 @@ echo '<div class="modal fade" id="myModal'.$x['movieID'].'">
         stags.parentNode.insertBefore(js,stags);})(document,\'script\',\'imdb-rating-api\');
         </script>
         <!-- Director -->
+        <h4 class="text-white-50">Director: </h4>
         <p class="text-white-50">'.$x['director'].'</p>
         <!-- Movie Description -->
         <p class="text-white-50">'.$x['movieDesc'].'</p>
