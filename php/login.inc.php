@@ -29,6 +29,7 @@ else {
       }
       else if ($pwdCheck == true) {
         session_start();
+        $_SESSION['userType'] = $row['type'];
         $_SESSION['userId'] = $row['id'];
         $_SESSION['userUsername'] = $row['username'];
 

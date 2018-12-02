@@ -37,7 +37,10 @@
     include 'php/header.php';
     include 'php/about.php';
     include 'php/movies.php';
-    // include 'php/signup.php';
+    if (isset($_SESSION['userid'])) {
+      include 'php/favourites.php';
+    }
+
     include 'php/contact.php';
     include 'php/footer.php';
     include 'php/bootstrap.php';

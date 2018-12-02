@@ -1,3 +1,4 @@
+
 <!-- Movies Section -->
 <section id="movies" class="movies-section bg-black">
   <div class="container">
@@ -26,5 +27,6 @@
       </div>';
 }
  ?>
+</div>
 </div>
 </section>
