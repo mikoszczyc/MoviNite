@@ -1,7 +1,11 @@
 <!-- Movies Section -->
 <section id="movies" class="movies-section bg-black">
   <div class="container">
-
+    <?php
+    if (@$_SESSION['userUsername'] == 'admin') {
+      include 'php/adminPanel.php';
+    }
+     ?>
     <!-- Cards with Movies -->
     <div class="row mt-5 justify-content-center">
 <?php

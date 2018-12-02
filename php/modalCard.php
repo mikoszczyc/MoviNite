@@ -37,7 +37,8 @@ echo '<div class="modal fade" id="myModal'.$x['movieID'].'">
         js.src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js";
         stags.parentNode.insertBefore(js,stags);})(document,\'script\',\'imdb-rating-api\');
         </script>
-
+        <!-- Director -->
+        <p class="text-white-50">'.$x['director'].'</p>
         <!-- Movie Description -->
         <p class="text-white-50">'.$x['movieDesc'].'</p>
         </div>

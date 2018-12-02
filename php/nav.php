@@ -30,6 +30,19 @@
                 </li>
                 ';
               }
+              elseif (@$_SESSION['userUsername']=='admin') {
+                echo '
+                <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" href="#adminPanel"><p>Hi '.ucfirst($_SESSION['userUsername']).'!</p></a>
+                </li>
+                ';
+
+                echo '
+                <li class="nav-item">
+                  <a class="nav-link" href="php/logout.php">Logout</a>
+                </li>
+                ';
+              }
               else {
                 echo '
                 <li class="nav-item">
