@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Gru 2018, 00:00
+-- Czas generowania: 03 Gru 2018, 20:46
 -- Wersja serwera: 10.1.35-MariaDB
 -- Wersja PHP: 7.2.9
 
@@ -39,8 +39,12 @@ CREATE TABLE `favorites` (
 
 INSERT INTO `favorites` (`userID`, `movieID`) VALUES
 (10, 5),
+(10, 12),
+(10, 20),
 (10, 21),
 (14, 1),
+(14, 2),
+(14, 4),
 (14, 19);
 
 -- --------------------------------------------------------

@@ -31,16 +31,13 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" class="bg-black">
 <?php
     include 'php/nav.php';
     include 'php/header.php';
     include 'php/about.php';
     include 'php/movies.php';
-    if (isset($_SESSION['userid'])) {
-      include 'php/favourites.php';
-    }
-
+      if (isset($_SESSION['userId'])) { include 'php/favourites.php'; }
     include 'php/contact.php';
     include 'php/footer.php';
     include 'php/bootstrap.php';

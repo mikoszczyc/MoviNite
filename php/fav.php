@@ -12,10 +12,10 @@ if (isset($_SESSION['userId'])) {
     if (mysqli_num_rows($result) == 0) {
       $query = "INSERT INTO `favorites` (`userID`, `movieID`) VALUES ('$userid', '$movieid')";
       mysqli_query($conn, $query);
-      header('location: ../index.php?add');
+      header('location: ../index.php#favourites');
     } else {
       $query = "DELETE FROM `favorites` WHERE `favorites`.`userID` = '$userid' AND `favorites`.`movieID` = '$movieid'";
       mysqli_query($conn, $query);
 
-      header('location: ../index.php?delete');
+      header('location: ../index.php#favourites');
     }}}

@@ -3,7 +3,7 @@
 <section id="movies" class="movies-section bg-black">
   <div class="container">
     <?php
-    if (@$_SESSION['userUsername'] == 'admin') {
+    if (@$_SESSION['userType'] === 1) {
       include 'php/adminPanel.php';
     }
      ?>
@@ -24,7 +24,7 @@
     $movieDatatitle=$datatitle['datatitle'];
 
 echo <<< CARDS
-      <div class="card card-movie-poster bg-blacker text-white text-center  text-align-middle mx-2 mb-3">
+      <div class="card card-movie-poster bg-blacker text-white text-center  text-align-middle mx-1 mb-2">
         <div class="card-body">
         <a data-toggle="modal" href="#myModal$movieID"><img class="card-img " src="img/movieCovers/$movieDatatitle.jpg"></a>
         </div>

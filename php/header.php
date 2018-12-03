@@ -8,7 +8,7 @@
       <a href="#movies" class="btn btn-primary js-scroll-trigger">Browse movies</a><br><br>
       <?php
       if (isset($_SESSION['userId'])) {
-        echo '<a data-toggle="modal" href="#favourites" class="btn btn-dark">Your favourites!</a><br><br>';
+        echo '<a href="#favourites" class="btn btn-dark">Your favourites!</a><br><br>';
       }
       ?>
       <a href="#about" class="btn btn-secondary js-scroll-trigger">About</a>

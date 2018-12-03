@@ -1,3 +1,4 @@
+$(document).ready(function() {
 // Skrypt zatrzymuje film po zamknięciu elementu MODAL
 var grabbed = document.querySelectorAll('[id^="myModal"]');
 var myModal;
@@ -8,7 +9,7 @@ for(var i=0; i<grabbed.length;i++){
   $(grabbed[i]).on('show.bs.modal', function () {
     myModal = this.id;
     console.log(this.id);
-  })
+  });
   $(grabbed[i]).on('hide.bs.modal', function () {
     var iframe = this.querySelectorAll("iframe.embed-responsive-item");
     console.log(iframe[0].id);
@@ -17,3 +18,5 @@ for(var i=0; i<grabbed.length;i++){
     $("#"+iframe[0].id).attr("src",video);
 });
 }
+
+});

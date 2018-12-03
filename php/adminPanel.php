@@ -11,6 +11,8 @@
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body text-white-50" >
         <form action="php/upload.php" method="post" enctype="multipart/form-data" autocomplete="off">
+          <fieldset class="bg-dark rounded">
+          <legend>Add movie to database</legend>
           <input type="text" style="width: 400px" name="datatitle" placeholder="Url to IMDB page"><br>
           <input type="text" style="width: 400px" name="movieTitle" placeholder="Title"><br>
           <input type="text" style="width: 400px" name="movieDesc" placeholder="Description"><br>
@@ -20,6 +22,7 @@
           Movie cover
           <input type="file" style="width: 400px" name="movieCover" required><br>
           <button type="submit" name="submit-upload">Add</button>
+        </fieldset>
         </form>
       </div>
     </div>

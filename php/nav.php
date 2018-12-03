@@ -19,7 +19,7 @@
               <?php
               if(isset($_SESSION['userUsername'])){
                 echo '
-                <li class="nav-item">
+                <li class="nav-item ">
                 <p class="nav-link">Hi '.ucfirst($_SESSION['userUsername']).'!</p>
                 </li>
                 ';
