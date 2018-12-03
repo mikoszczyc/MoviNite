@@ -19,11 +19,7 @@
       $sqlWatchlist = "SELECT * FROM movies INNER JOIN favorites ON movies.movieID = favorites.movieID WHERE favorites.userID = $userID";
       $resultWatchlist = mysqli_query($conn, $sqlWatchlist);
       $favMovieId = array();
-      if (@!mysqli_num_rows($resultWatchlist > 0)) {
-        echo "YIKES! Nothing here yet! <br><br>(You can add movies to your list of favourites by clicking heart icon)";
-
-      }
-      elseif (mysqli_num_rows($resultWatchlist) > 0) {
+      if (mysqli_num_rows($resultWatchlist) > 0) {
         while ($row2 = mysqli_fetch_assoc($resultWatchlist)) {
           $favMovieId[] = $row2;
         }
