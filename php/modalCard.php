@@ -1,41 +1,46 @@
 <!-- Generates a Bootstrap Modal with data extracted from the DB -->
 
 <?php
+
 foreach ($movieId as $x) {
-?>
-<div class="modal fade" id="myModal<?=$x['movieID']?>">
+  $movieID = $x['movieID'];
+  $movieTitle = $x['movieTitle'];
+  $movieDirector = $x['director'];
+  $movieDesc = $x['movieDesc'];
+  $movieDataTitle = $x['datatitle'];
+  $movieTrailerUrl = $x['movieTrailerUrl'];
+echo <<< MOVIES1
+<div class="modal fade" id="myModal$movieID">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content bg-black">
       <div class="modal-header">
 
       <!-- Movie Title -->
-      <h3 class="text-white-50"><?=$x['movieTitle']?></h3>
+      <h3 class="text-white-50">$movieTitle</h3>
 
-        <!-- Close button -->
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <!-- Close button -->
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       </div>
 
       <div class="modal-body container">
-      <div class="row">
-        <div class="col">
+        <div class="row">
+          <div class="col">
 
         <!-- Movie Cover -->
-        <img class="card-img " src="img/movieCovers/<?=$x['datatitle']?>.jpg" alt="<?=$x['movieTitle']?>">
-        </div>
-        <div class="col">
-<?
-if (isset($_SESSION['userId'])) {
-?>
-  <!-- Fav -->
-  <a href="./php/fav.php?id=<?=$x['movieID']?>"><img src="img/fav.png"></a>
-<?
-}
-?>
+        <img class="card-img " src="img/movieCovers/$movieDataTitle.jpg" alt="$movieDataTitle">
+          </div>
+          <div class="col">
+MOVIES1;
+          if (isset($_SESSION['userId'])){
+              $fav = "<a href='./php/fav.php?id=$movieID'><img src='img/fav.png'></a>";
+              echo $fav;
+          }
+echo <<< MOVIES2
         <!-- IMDb Rating-->
-        <span class="imdbRatingPlugin" data-title="<?=$x['datatitle']?>" data-style="p2">
-        <a href="https://www.imdb.com/title/<?=$x['datatitle']?>/?ref_=tt_plg_rt"
+        <span class="imdbRatingPlugin" data-title="$movieDataTitle" data-style="p2">
+        <a href="https://www.imdb.com/title/$movieDataTitle/?ref_=tt_plg_rt"
         src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/images/imdb_46x22.png">
           </a></span>
           <script>
@@ -47,24 +52,24 @@ if (isset($_SESSION['userId'])) {
 
         <!-- Director -->
         <h4 class="text-white-50">Director: </h4>
-        <p class="text-white-50"><?=$x['director']?></p>
+        <p class="text-white-50">$movieDirector</p>
 
         <!-- Movie Description -->
         <h4 class="text-white-50">Description: </h4>
-        <p class="text-white-50"><?=$x['movieDesc']?></p>
+        <p class="text-white-50">$movieDesc</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
+        <div class="row">
 
         <!-- Video -->
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe id="<?=$x['movieID']?>" class="embed-responsive-item"  src="https://www.youtube-nocookie.com/embed/<?=$x['movieTrailerUrl']?>?rel=0&amp;&enablejsapi=1; showinfo=0"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </div>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe id="$movieID" class="embed-responsive-item"  src="https://www.youtube-nocookie.com/embed/$movieTrailerUrl?rel=0&amp;&enablejsapi=1; showinfo=0"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
       </div>
       </div>
     </div>
   </div>
 </div>
-<?php
+MOVIES2;
 };
 ?>

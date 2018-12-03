@@ -1,4 +1,4 @@
-<div id="favourites" class="row mt-5 justify-content-center bg-black hide" >
+<div id="favourites" class="container mt-5 justify-content-center bg-black" >
 <div class="panel-group" id="favAccordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="favHeading">

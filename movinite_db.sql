@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Gru 2018, 20:46
+-- Czas generowania: 03 Gru 2018, 22:56
 -- Wersja serwera: 10.1.35-MariaDB
 -- Wersja PHP: 7.2.9
 
@@ -38,14 +38,13 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`userID`, `movieID`) VALUES
-(10, 5),
-(10, 12),
+(10, 1),
+(10, 8),
+(10, 14),
+(10, 19),
 (10, 20),
 (10, 21),
-(14, 1),
-(14, 2),
-(14, 4),
-(14, 19);
+(10, 23);
 
 -- --------------------------------------------------------
 
@@ -110,9 +109,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `type`) VALUES
 (10, 'admin', '$2y$10$NpRPGdnJ4fT7nWcun4phPOJyQavuJ1gFUcoAiV5Tyrtgv5nzjryfm', 'admin@gmail.com', 1),
 (11, 'szymon', '$2y$10$n08ffkutpRcTwooSVAgU7ugfeXWfy35HOXCFCKuPUvfQAvy9CXuTS', 'szmeko@gmail.com', 0),
-(12, 'Mike', '$2y$10$z31QKsG2rlhYZsEpYNzhbetlNpUcJozEppfqvZq.oHxc2wi3ToPYa', 'mikemike@gmail.com', 0),
 (14, 'Mackay', '$2y$10$S7QVq6UtpuHYVtxHgfK.EOxahq/sGIHbEIdKBCVkd8xYSkdt97oCi', 'mikoszczyc@gmail.com', 1),
-(15, 'Przemek', '$2y$10$fsJM5rXjV4Tb5a8IOX5upeueuBwEdccJbjA3z3JjvaBD0rFE4XG5S', 'callmewo@gmail.com', 0);
+(16, 'Tester', '$2y$10$RX1doQQUhJeBIb9.hYokjueLvh9UeaQqDjm2t5UatOTrZpiEc3cOC', 'test@gmail.com', 0);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -151,7 +149,7 @@ ALTER TABLE `movies`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Ograniczenia dla zrzutów tabel
